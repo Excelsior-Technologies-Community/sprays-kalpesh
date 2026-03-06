@@ -1,0 +1,338 @@
+/* Base Styles */
+.site-header {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Announce Bar */
+.announcebar {
+  font-size: 13px;
+  padding: 0;
+}
+
+.announce-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 0;
+}
+
+.announce-left p {
+  margin: 0;
+  letter-spacing: 0.1px;
+}
+
+.announce-left b {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.top-utility-links {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  align-items: center;
+  padding: 0;
+}
+
+.top-utility-links .dropdown.pill {
+  background-color: #fff;
+  color: #000;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.flag-icon {
+  width: 16px;
+  height: auto;
+  border-radius: 1px;
+}
+
+.utility-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+.utility-link:hover {
+  text-decoration: underline;
+}
+
+/* Main Navbar */
+.main-navigationbar {
+  padding: 24px 0;
+  position: relative;
+}
+
+.nav-left-section {
+  display: flex;
+  align-items: center;
+}
+
+.navigationbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-col {
+  padding-right: 40px;
+  margin-right: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.logo-col img {
+  width: 120px;
+  display: block;
+}
+
+.menu-items-col {
+  flex-grow: 1;
+}
+
+.main-nav {
+  display: flex;
+  list-style: none;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav .menu-lnk>a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Hover Line Animation */
+.main-nav .menu-lnk>a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.main-nav .menu-lnk:hover>a::after,
+.main-nav .menu-lnk.active-lnk>a::after {
+  width: 100%;
+}
+
+/* Mega Menu / Dropdown Engine */
+.has-mega {
+  position: static;
+}
+
+.mega-menu {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 0 50px;
+  z-index: 999;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.has-mega:hover .mega-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.has-mega:hover>a .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-chevron {
+  transition: transform 0.3s ease;
+}
+
+.mega-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.categories-mega {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.mega-column .list-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #fff;
+  margin-top: 0;
+}
+
+.mega-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mega-column ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.mega-column ul li a:hover {
+  color: #fff;
+}
+
+.mega-image-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mega-img {
+  max-height: 250px;
+  object-fit: contain;
+}
+
+/* Simple Dropdown Styles (Pages & Blog) */
+.simple-dropdown {
+  width: 240px;
+  left: auto;
+  padding: 20px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-list li a {
+  display: block;
+  padding: 12px 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.dropdown-list li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Collections Mega Menu Styles */
+.collections-mega .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.collection-card {
+  text-align: center;
+}
+
+.card-image {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  aspect-ratio: 1/1;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collection-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+/* Icons & Cart */
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.account-icon {
+  background: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cart-btn {
+  border: 1px solid rgba(255, 255, 255, 1);
+  padding: 8px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.cart-btn:hover {
+  opacity: 0.8;
+}
