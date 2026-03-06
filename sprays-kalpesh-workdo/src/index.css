@@ -1,0 +1,57 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Force a dark theme for the fragrance brand aesthetic */
+  color: #ffffff;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1. REMOVE FLEX FROM BODY */
+/* The default Vite CSS centers everything. We need it to stack normally. */
+body {
+  margin: 0;
+  display: block;
+  /* Changed from flex */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 2. Global Link Reset */
+a {
+  font-weight: 500;
+  color: inherit;
+  /* Use the parent's color instead of blue */
+  text-decoration: none;
+  transition: opacity 0.25s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* 3. Utility Container */
+/* This ensures your content doesn't hit the very edges of the screen */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 4. Headings */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 40px 0;
+}
+
+/* 5. Section spacing */
+main {
+  width: 100%;
+}
