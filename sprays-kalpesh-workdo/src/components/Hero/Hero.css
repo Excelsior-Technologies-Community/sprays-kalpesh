@@ -283,11 +283,7 @@
 
 }
 
-/* Hover Effects */
-.product-card:hover .primary-img {
-  opacity: 0;
-  transform: scale(1.05) translateZ(0);
-}
+
 
 .product-card:hover .hover-img {
   opacity: 1;
