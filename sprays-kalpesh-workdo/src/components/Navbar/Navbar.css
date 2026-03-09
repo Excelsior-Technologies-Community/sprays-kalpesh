@@ -21,8 +21,8 @@ body.no-scroll {
   z-index: 1000;
   position: sticky;
   top: 0;
-  margin-bottom: 30px;
-  /* Space for page content */
+  margin-bottom: 0;
+  /* Attached to hero */
 }
 
 .container {
