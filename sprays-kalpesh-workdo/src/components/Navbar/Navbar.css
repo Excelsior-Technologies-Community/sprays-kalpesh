@@ -481,7 +481,7 @@ body.no-scroll {
 /* 1. Large Laptops / Tablets (Standard Desktop adjustments) */
 @media (max-width: 1200px) {
   .container {
-    padding: 0 30px;
+    padding: 0 25px;
   }
 
   .main-nav {
@@ -535,7 +535,7 @@ body.no-scroll {
 
   /* Spacer to prevent content from going under fixed header */
   body {
-    padding-top: 100px;
+    padding-top: 50px;
     /* Increased for luxury spacing */
   }
 
