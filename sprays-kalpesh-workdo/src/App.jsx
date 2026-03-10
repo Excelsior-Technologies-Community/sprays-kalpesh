@@ -18,12 +18,12 @@ function App() {
         <Hero />
 
         {/* 2. Rest of your page content */}
-        
-
-            <ProductSlider />
-          
-
         <Description />
+
+        <ProductSlider />
+
+
+
 
       </div>
     </>
