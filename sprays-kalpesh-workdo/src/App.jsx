@@ -8,6 +8,8 @@ import Description from './components/2nd-section/Description'
 import VideoSection from './components/Video-section/Video-section'
 import VersalitySection from './components/Versality-section/Versality-section'
 
+import Footer from './components/Footer/Footer'
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -27,6 +29,8 @@ function App() {
         <VideoSection />
 
         <VersalitySection />
+
+        <Footer />
       </div>
     </>
   )
