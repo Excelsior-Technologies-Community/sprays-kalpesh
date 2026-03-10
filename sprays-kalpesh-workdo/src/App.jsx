@@ -5,6 +5,8 @@ import './App.css'
 import Hero from './components/Hero/Hero'
 import ProductSlider from './components/Slider/ProductSlider'
 import Description from './components/2nd-section/Description'
+import VideoSection from './components/Video-section/Video-section'
+import VersalitySection from './components/Versality-section/Versality-section'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,9 +24,9 @@ function App() {
 
         <ProductSlider />
 
+        <VideoSection />
 
-
-
+        <VersalitySection />
       </div>
     </>
   )

@@ -1,8 +1,8 @@
 .second-sec {
-  padding: 090px 8%;
+  padding: 120px 8% 320px;
   background: #fff;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .side-img-left {
@@ -101,7 +101,7 @@
 
 .main-prod-img {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: contain;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.08));
 }
