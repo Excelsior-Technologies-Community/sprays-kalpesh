@@ -26,9 +26,21 @@
 .ps-inner {
     position: relative;
     z-index: 1;
-    max-width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 80px;
+}
+
+@media (max-width: 1200px) {
+    .ps-inner {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ps-inner {
+        padding: 0 25px;
+    }
 }
 
 /* ── Section heading block ── */
