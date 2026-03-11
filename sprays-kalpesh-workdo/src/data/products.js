@@ -10,7 +10,8 @@ export const products = [
         badge: "20%",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_a7608a96-770b-4702-bfbb-a8086da3cf12_440x466.png?v=1700112436",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_58fb376a-3871-47ea-9f91-439c0b1f556f_440x466.png?v=1700112436",
-        weights: ["60ml", "50ml"]
+        weights: ["60ml", "50ml"],
+        category: "fragrances"
     },
     {
         id: 2,
@@ -23,7 +24,8 @@ export const products = [
         badge: "New",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png?v=1700112945",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_0fd5c05a-db0a-46e5-a4a4-f43e86a179c1_600x600.png?v=1700112944",
-        weights: ["80ml", "60ml"]
+        weights: ["80ml", "60ml"],
+        category: "fragrances"
     },
     {
         id: 3,
@@ -36,7 +38,8 @@ export const products = [
         badge: "Sale",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_f89b722a-1739-4b59-9ff9-fbc612c7ab3b_600x600.png?v=1700112789",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_9f32f89b-6c0a-431c-8219-f977cd60e07d_600x600.png?v=1700112789",
-        weights: ["75ml", "30ml"]
+        weights: ["75ml", "30ml"],
+        category: "fragrances"
     },
     {
         id: 4,
@@ -49,7 +52,8 @@ export const products = [
         badge: "New",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_6797f7be-438d-42cd-b925-e1765472a361_440x466.png?v=1700112624",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_50fcc03a-35ee-4f2d-ad66-b04bea0659d1_440x466.png?v=1700112624",
-        weights: ["60ml", "100ml"]
+        weights: ["60ml", "100ml"],
+        category: "unisex"
     },
     {
         id: 5,
@@ -62,7 +66,8 @@ export const products = [
         badge: "20%",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png?v=1700112945",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_0fd5c05a-db0a-46e5-a4a4-f43e86a179c1_600x600.png?v=1700112944",
-        weights: ["75ml", "50ml"]
+        weights: ["75ml", "50ml"],
+        category: "unisex"
     },
     {
         id: 6,
@@ -75,7 +80,8 @@ export const products = [
         badge: "20%",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_db366a6a-a82f-488b-8219-c09e3e3fc73b_440x466.png?v=1700112480",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9a6876b2-beae-4ed4-af95-1331900080eb_440x466.png?v=1700117105",
-        weights: ["60ml", "100ml"]
+        weights: ["60ml", "100ml"],
+        category: "unisex"
     },
     {
         id: 7,
@@ -88,7 +94,8 @@ export const products = [
         badge: "20%",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9a6876b2-beae-4ed4-af95-1331900080eb_440x466.png?v=1700117105",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_b73caffe-8acf-46f9-a49d-228b958e2609_440x466.png?v=1700117105",
-        weights: ["90ml", "50ml"]
+        weights: ["90ml", "50ml"],
+        category: "solid"
     },
     {
         id: 8,
@@ -101,7 +108,8 @@ export const products = [
         badge: "20%",
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_440x466.png?v=1700116770",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_6e9dd3e5-441e-47db-9286-6b14dc374a56_440x466.png?v=1700116770",
-        weights: ["60ml", "100ml"]
+        weights: ["60ml", "100ml"],
+        category: "solid"
     },
     {
         id: 9,
@@ -115,6 +123,134 @@ export const products = [
         image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_540a9dd3-b974-41ff-8346-0dc24fac402d_440x466.png?v=1700116930",
         hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_5d7f7c06-056c-4471-b62f-78fdb174ffe7_440x466.png?v=1700116930",
         weights: ["90ml", "120ml"],
-        showCountdown: true
+        showCountdown: true,
+        category: "solid"
+    },
+    {
+        id: 10,
+        name: "Santal 33 Bloom",
+        brand: "Le Labo",
+        price: 35.00,
+        originalPrice: 45.00,
+        rating: 5,
+        reviewCount: 15,
+        badge: "Hot",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_f89b722a-1739-4b59-9ff9-fbc612c7ab3b_600x600.png?v=1700112789",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_9f32f89b-6c0a-431c-8219-f977cd60e07d_600x600.png?v=1700112789",
+        weights: ["50ml", "100ml"],
+        category: "fragrances"
+    },
+    {
+        id: 11,
+        name: "Noir Extreme",
+        brand: "Tom Ford",
+        price: 120.00,
+        originalPrice: 140.00,
+        rating: 4,
+        reviewCount: 22,
+        badge: "Premium",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_a7608a96-770b-4702-bfbb-a8086da3cf12_440x466.png?v=1700112436",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_58fb376a-3871-47ea-9f91-439c0b1f556f_440x466.png?v=1700112436",
+        weights: ["100ml"],
+        category: "fragrances"
+    },
+    {
+        id: 12,
+        name: "Daisy Love",
+        brand: "Marc Jacobs",
+        price: 75.00,
+        originalPrice: 85.00,
+        rating: 5,
+        reviewCount: 45,
+        badge: "Special",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png?v=1700112945",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_0fd5c05a-db0a-46e5-a4a4-f43e86a179c1_600x600.png?v=1700112944",
+        weights: ["30ml", "50ml"],
+        category: "fragrances"
+    },
+    {
+        id: 13,
+        name: "Oud Wood Unisex",
+        brand: "Tom Ford",
+        price: 55.00,
+        originalPrice: 65.00,
+        rating: 4,
+        reviewCount: 12,
+        badge: "Unisex",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_6797f7be-438d-42cd-b925-e1765472a361_440x466.png?v=1700112624",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_50fcc03a-35ee-4f2d-ad66-b04bea0659d1_440x466.png?v=1700112624",
+        weights: ["50ml", "75ml"],
+        category: "unisex"
+    },
+    {
+        id: 14,
+        name: "Black Orchid",
+        brand: "Tom Ford",
+        price: 45.00,
+        originalPrice: 55.00,
+        rating: 3,
+        reviewCount: 8,
+        badge: "Trending",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_db366a6a-a82f-488b-8219-c09e3e3fc73b_440x466.png?v=1700112480",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9a6876b2-beae-4ed4-af95-1331900080eb_440x466.png?v=1700117105",
+        weights: ["100ml"],
+        category: "unisex"
+    },
+    {
+        id: 15,
+        name: "Libre Intense",
+        brand: "YSL",
+        price: 90.00,
+        originalPrice: 100.00,
+        rating: 5,
+        reviewCount: 30,
+        badge: "New",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_a7608a96-770b-4702-bfbb-a8086da3cf12_440x466.png?v=1700112436",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_58fb376a-3871-47ea-9f91-439c0b1f556f_440x466.png?v=1700112436",
+        weights: ["50ml", "90ml"],
+        category: "unisex"
+    },
+    {
+        id: 16,
+        name: "Solid Musk Cream",
+        brand: "Luxury",
+        price: 15.00,
+        originalPrice: 20.00,
+        rating: 4,
+        reviewCount: 5,
+        badge: "Eco",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_9a6876b2-beae-4ed4-af95-1331900080eb_440x466.png?v=1700117105",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_b73caffe-8acf-46f9-a49d-228b958e2609_440x466.png?v=1700117105",
+        weights: ["30g", "50g"],
+        category: "solid"
+    },
+    {
+        id: 17,
+        name: "Solid Rose Balm",
+        brand: "Natural",
+        price: 12.00,
+        originalPrice: 18.00,
+        rating: 5,
+        reviewCount: 10,
+        badge: "Organic",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_440x466.png?v=1700116770",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_6e9dd3e5-441e-47db-9286-6b14dc374a56_440x466.png?v=1700116770",
+        weights: ["20g"],
+        category: "solid"
+    },
+    {
+        id: 18,
+        name: "Travel Solid Set",
+        brand: "Swiss",
+        price: 30.00,
+        originalPrice: 40.00,
+        rating: 4,
+        reviewCount: 3,
+        badge: "Set",
+        image: "https://sprays-workdo.myshopify.com/cdn/shop/files/1_540a9dd3-b974-41ff-8346-0dc24fac402d_440x466.png?v=1700116930",
+        hoverImage: "https://sprays-workdo.myshopify.com/cdn/shop/files/2_5d7f7c06-056c-4471-b62f-78fdb174ffe7_440x466.png?v=1700116930",
+        weights: ["Set of 3"],
+        category: "solid"
     }
 ];
+
