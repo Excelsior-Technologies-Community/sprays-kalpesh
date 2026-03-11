@@ -39,9 +39,21 @@ a:hover {
 /* 3. Utility Container */
 /* This ensures your content doesn't hit the very edges of the screen */
 .container {
-  max-width: 1320px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 80px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 25px;
+  }
 }
 
 /* 4. Headings */
