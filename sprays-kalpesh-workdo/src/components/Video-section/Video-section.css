@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 300px 0 180px;
+    padding: 160px 0 120px;
     color: #fff;
     text-align: center;
 }
@@ -26,9 +26,9 @@
 .video-sec .container {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 80px;
 }
 
 .video-content {
@@ -175,7 +175,17 @@
 }
 
 /* Responsiveness */
+@media screen and (max-width: 1200px) {
+    .video-sec .container {
+        padding: 0 40px;
+    }
+}
+
 @media screen and (max-width: 991px) {
+    .video-sec .container {
+        padding: 0 25px;
+    }
+
     .section-title h2 {
         font-size: 42px;
     }
