@@ -1,5 +1,5 @@
 .product-category-slider {
-    padding: 80px 0;
+    padding: 0 0 40px 0; /* Reduced top/bottom padding */
     background-color: #fff;
 }
 
@@ -30,30 +30,35 @@
 .pcs-container-row {
     display: flex;
     flex-wrap: nowrap;
-    margin: 0 -20px; /* Aligned with site-wide grid gutters */
+    margin: 0 -20px;
     align-items: stretch;
     width: auto;
 }
 
 .pcs-side-static {
-    width: 34%;
+    width: 42%;
     flex-shrink: 0;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .pcs-slider-area {
-    width: 66%;
+    width: 58%;
     flex-shrink: 0;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
     .pcs-container-row {
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
     }
-    .pcs-side-static, .pcs-slider-area {
+
+    .pcs-side-static,
+    .pcs-slider-area {
         width: 100%;
     }
+
     .pcs-side-static {
         margin-bottom: 20px;
     }
@@ -63,7 +68,7 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    height: 380px; /* Reduced height for smaller cards */
+    height: 380px;
     background: #000;
 }
 
@@ -72,10 +77,8 @@
     height: 100%;
     object-fit: cover;
     opacity: 0.7;
-    transition: transform 1s ease;
+    display: block;
 }
-
-/* Hover effect removed */
 
 .pcs-content-overlay {
     position: absolute;
@@ -83,12 +86,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 30px 40px 50px 40px; /* Increased side padding and lifted bottom button */
+    padding: 30px 40px 50px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 2;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+    box-sizing: border-box;
 }
 
 .pcs-title {
@@ -111,6 +115,7 @@
     line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-family: 'Jost', sans-serif;
 }
 
 .pcs-bottom {
@@ -128,22 +133,9 @@
     font-weight: 700;
     font-size: 13px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Jost', sans-serif;
 }
 
-.pcs-main-btn:hover {
-    background: #000;
-    color: #fff;
-}
-
-.pcs-main-btn svg {
-    transition: transform 0.3s ease;
-}
-
-/* Button hover effect removed */
-
-/* Slider Controls Positioning */
 .pcs-swiper-wrapper {
     position: relative;
     height: 100%;
@@ -151,9 +143,24 @@
 
 .pcs-swiper-main {
     height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
-.pcs-nav-prev, .pcs-nav-next {
+.pcs-swiper-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.pcs-swiper-slide {
+    min-width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.pcs-nav-prev,
+.pcs-nav-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -166,8 +173,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    border-radius: 4px; /* Dark square look from image */
-    transition: opacity 0.3s ease;
+    border-radius: 4px;
 }
 
 .pcs-nav-prev {
@@ -178,11 +184,8 @@
     right: 5px;
 }
 
-.pcs-nav-prev:hover, .pcs-nav-next:hover {
-    opacity: 0.8;
-}
-
-.pcs-nav-prev.swiper-button-disabled, .pcs-nav-next.swiper-button-disabled {
+.pcs-nav-prev.disabled,
+.pcs-nav-next.disabled {
     opacity: 0.3;
     cursor: not-allowed;
 }
@@ -197,9 +200,11 @@
     .pcs-card-item {
         height: 400px;
     }
+
     .pcs-content-overlay {
         padding: 20px;
     }
+
     .pcs-title {
         font-size: 20px;
     }
