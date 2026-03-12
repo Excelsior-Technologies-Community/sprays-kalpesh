@@ -23,6 +23,8 @@ body.no-scroll {
   position: sticky;
   top: 0;
   margin-bottom: 0;
+  margin-left: 70px;
+  margin-right: 70px;
   /* Attached to hero */
 }
 
