@@ -26,20 +26,20 @@
 .ps-inner {
     position: relative;
     z-index: 1;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 0 120px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .ps-inner {
-        padding: 0 40px;
+        padding: 0 80px;
     }
 }
 
 @media (max-width: 1024px) {
     .ps-inner {
-        padding: 0 25px;
+        padding: 0 40px;
     }
 }
 
