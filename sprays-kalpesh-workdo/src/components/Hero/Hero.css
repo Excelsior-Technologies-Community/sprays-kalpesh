@@ -27,9 +27,9 @@
 
 .hero-inner {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1440px; /* Aligned with global max-width */
   margin: 0 auto;
-  padding: 40px 80px;
+  padding: 40px 120px; /* Balanced with new global horizontal padding */
   display: grid;
   grid-template-columns: 55% 42%;
   gap: 0;
@@ -485,7 +485,13 @@
    RESPONSIVE DESIGN
  ───────────────────────────────────────── */
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
+  .hero-inner {
+    padding: 60px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 80px;
