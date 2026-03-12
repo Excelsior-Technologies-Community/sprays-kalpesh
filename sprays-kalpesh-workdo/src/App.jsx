@@ -10,6 +10,7 @@ import VersalitySection from './components/Versality-section/Versality-section'
 import ProductCategorySlider from './components/ProductCategorySlider/ProductCategorySlider'
 
 import Footer from './components/Footer/Footer'
+import UniqueSection from './components/UniqueSection/UniqueSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
         <VersalitySection />
 
         <ProductCategorySlider />
+        <UniqueSection />
 
         <Footer />
       </div>
