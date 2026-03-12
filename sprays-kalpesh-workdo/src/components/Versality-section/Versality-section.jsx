@@ -63,17 +63,17 @@ const VersalitySection = () => {
 
                     <Swiper
                         modules={[Navigation]}
-                        spaceBetween={20}
+                        spaceBetween={40}
                         slidesPerView={4}
                         navigation={{
                             prevEl: '#v-prev-btn',
                             nextEl: '#v-next-btn',
                         }}
                         breakpoints={{
-                            0: { slidesPerView: 1 },
-                            600: { slidesPerView: 2 },
-                            991: { slidesPerView: 3 },
-                            1200: { slidesPerView: 4 }
+                            0: { slidesPerView: 1, spaceBetween: 20 },
+                            480: { slidesPerView: 2, spaceBetween: 25 },
+                            768: { slidesPerView: 3, spaceBetween: 30 },
+                            1024: { slidesPerView: 4, spaceBetween: 40 }
                         }}
                         className="v-swiper"
                     >
