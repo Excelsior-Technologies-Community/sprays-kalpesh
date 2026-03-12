@@ -11,6 +11,9 @@ import ProductCategorySlider from './components/ProductCategorySlider/ProductCat
 
 import Footer from './components/Footer/Footer'
 import UniqueSection from './components/UniqueSection/UniqueSection'
+import ManufacturingProcess from './components/ManufacturingProcess/ManufacturingProcess'
+import Newsletter from './components/Newsletter/Newsletter'
+import FeaturedBlog from './components/FeaturedBlog/FeaturedBlog'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,6 +37,9 @@ function App() {
 
         <ProductCategorySlider />
         <UniqueSection />
+        <ManufacturingProcess />
+        <Newsletter />
+        <FeaturedBlog />
 
         <Footer />
       </div>

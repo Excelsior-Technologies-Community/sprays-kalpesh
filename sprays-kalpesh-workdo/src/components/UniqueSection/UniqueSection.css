@@ -1,9 +1,9 @@
 .padding-bottom {
-    padding-bottom: clamp(40px, 6vw, 80px);
+    padding-bottom: clamp(20px, 6vw, 80px);
 }
 
 .unique-section {
-    padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 70px);
+    padding: clamp(20px, 2vw, 80px) clamp(16px, 5vw, 70px);
     background-color: #fff;
     color: #000;
 }
@@ -134,7 +134,7 @@
     max-width: none !important;
     margin: 0 !important;
     box-sizing: border-box;
-    border: 1px solid #eee !important;
+    border: 1px solid #353535 !important;
     border-radius: 12px;
 }
 
@@ -170,36 +170,15 @@
         padding: 50px 25px;
     }
 
-    .unique-left {
-        flex: 0 0 46%;
-        align-items: flex-start;
-    }
-
-    .unique-right {
-        flex: 0 0 50%;
-    }
-
-    .section-title h3 {
-        text-align: left;
-    }
-
-    .unique-desc {
-        text-align: left;
-    }
-
-    .filter-btns {
-        justify-content: flex-start;
-    }
-
-    .check-more-btn {
-        align-self: flex-start;
+    .unique-row {
+        gap: 30px;
     }
 }
 
 @media (max-width: 991px) {
     .unique-row {
-        flex-wrap: wrap;
-        gap: 32px;
+        flex-direction: column;
+        gap: 40px;
     }
 
     .unique-left {
@@ -210,6 +189,7 @@
 
     .unique-right {
         flex: 0 0 100%;
+        width: 100%;
     }
 
     .section-title h3 {
@@ -221,13 +201,13 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         max-width: 560px;
     }
 
     .filter-btns {
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .check-more-btn {
@@ -237,43 +217,39 @@
 
 @media (max-width: 768px) {
     .unique-section {
-        padding: 32px 16px;
+        padding: 40px 16px;
     }
 
     .unique-row {
-        gap: 24px;
+        gap: 30px;
     }
 
     .section-title h3 {
-        margin-bottom: 12px;
+        margin-bottom: 15px;
     }
 
     .unique-desc {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         font-size: 0.95rem;
     }
 
     .filter-btns {
         flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        margin-bottom: 12px;
+        align-items: center;
+        gap: 12px;
         width: 100%;
-        padding: 0;
     }
 
     .filter-btn {
         width: 100%;
-        max-width: 100%;
+        max-width: 320px;
         padding: 12px 24px;
-        justify-content: center;
     }
 
     .check-more-btn {
         width: 100%;
-        max-width: 100%;
+        max-width: 320px;
         justify-content: center;
-        align-self: center;
     }
 
     .more-pro-swiper .product-card-inner {

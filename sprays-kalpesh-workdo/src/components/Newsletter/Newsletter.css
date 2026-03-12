@@ -1,0 +1,133 @@
+.newsletter-section {
+    padding: 50px 70px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.n-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.n-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.n-header {
+    margin-bottom: 50px;
+}
+
+.n-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000;
+    margin-bottom: 25px;
+}
+
+.n-title strong {
+    font-weight: 900;
+}
+
+.n-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.n-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.n-form {
+    width: 100%;
+}
+
+.n-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.n-input {
+    width: 100%;
+    padding: 18px 40px 18px 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.n-input:focus {
+    border-color: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.n-submit-btn {
+    position: absolute;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    background: #000;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.n-submit-btn:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+.n-submit-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1024px) {
+    .n-title {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .newsletter-section {
+        padding: 80px 40px;
+    }
+
+    .n-title {
+        font-size: 32px;
+    }
+
+    .n-desc {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newsletter-section {
+        padding: 60px 16px;
+    }
+
+    .n-title {
+        font-size: 26px;
+    }
+
+    .n-input {
+        padding: 15px 70px 15px 25px;
+    }
+}
