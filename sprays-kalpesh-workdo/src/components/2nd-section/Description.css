@@ -3,6 +3,8 @@
   background: #fff;
   position: relative;
   overflow: visible;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .side-img-left {
