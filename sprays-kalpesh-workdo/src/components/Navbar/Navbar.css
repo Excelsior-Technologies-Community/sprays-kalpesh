@@ -4,7 +4,6 @@
   --nav-text-muted: #e0e0e0;
   --nav-accent: #ffffff;
   --nav-border: rgba(254, 254, 254, 0.805);
-  /* Softened from 0.15 */
   --nav-glass-bg: rgba(0, 0, 0, 0.85);
   --nav-glass-blur: 15px;
   --nav-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -14,7 +13,6 @@ body.no-scroll {
   overflow: hidden !important;
 }
 
-/* Base Styles */
 .site-header {
   background-color: var(--nav-bg);
   color: var(--nav-text);
@@ -23,9 +21,8 @@ body.no-scroll {
   position: sticky;
   top: 0;
   margin-bottom: 0;
-  margin-left: 70px;
-  margin-right: 70px;
-  /* Attached to hero */
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .container {
@@ -34,7 +31,6 @@ body.no-scroll {
   padding: 0 80px;
 }
 
-/* Announce Bar */
 .announcebar {
   font-size: 13px;
 }
@@ -122,7 +118,6 @@ body.no-scroll {
   opacity: 0.7;
 }
 
-/* Main Navbar */
 .main-navigationbar {
   padding: 24px 0;
   position: relative;
@@ -138,7 +133,6 @@ body.no-scroll {
   display: flex;
   align-items: center;
   flex: 1;
-  /* Expands to fill space, pushing menu-right to the far right */
 }
 
 .logo-col {
@@ -166,7 +160,6 @@ body.no-scroll {
   transform: scale(1.02);
 }
 
-
 .main-nav {
   display: flex;
   list-style: none;
@@ -187,7 +180,6 @@ body.no-scroll {
   position: relative;
 }
 
-/* Hover Line Animation */
 .main-nav .menu-lnk>a::after {
   content: "";
   position: absolute;
@@ -205,7 +197,6 @@ body.no-scroll {
   left: 0;
 }
 
-/* Mega Menu / Dropdown Engine */
 .has-mega {
   position: static;
 }
@@ -326,7 +317,6 @@ body.no-scroll {
   transform: scale(1.03) rotate(1deg);
 }
 
-/* Simple Dropdown Styles (Pages & Blog) */
 .simple-dropdown {
   display: none;
   width: 250px;
@@ -378,7 +368,6 @@ body.no-scroll {
   padding-left: 30px;
 }
 
-/* Collections Mega Menu Styles */
 .collections-mega .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -421,13 +410,11 @@ body.no-scroll {
   letter-spacing: 0.5px;
 }
 
-/* Icons & Cart */
 .menu-right {
   display: flex;
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
-  /* Stays at natural width, pushed right by nav-left-section's flex:1 */
 }
 
 .account-icon {
@@ -442,8 +429,6 @@ body.no-scroll {
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
-
 
 .cart-btn {
   border: 1.5px solid var(--nav-text);
@@ -460,10 +445,11 @@ body.no-scroll {
   transition: all 0.3s ease;
 }
 
+.mobile-main-list {
+  list-style: none;
+  padding: 0;
+}
 
-
-
-/* Mobile components are hidden on desktop by default */
 @media (min-width: 1025px) {
 
   .mobile-toggle-btn,
@@ -473,17 +459,27 @@ body.no-scroll {
   }
 }
 
-.mobile-main-list {
-  list-style: none;
-  padding: 0;
+@media (max-width: 1400px) {
+  .site-header {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .container,
+  .mega-container {
+    padding: 0 40px;
+  }
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* 1. Large Laptops / Tablets (Standard Desktop adjustments) */
 @media (max-width: 1200px) {
-  .container {
-    padding: 0 40px;
+  .site-header {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .container,
+  .mega-container {
+    padding: 0 25px;
   }
 
   .main-nav {
@@ -496,35 +492,9 @@ body.no-scroll {
   }
 }
 
-/* 2. Small Laptops / Landscape Tablets */
-@media (max-width: 1024px) {
-  .announce-left {
-    display: none;
-  }
-
-  .main-nav {
-    gap: 15px;
-  }
-
-  .navigationbar-row {
-    gap: 15px;
-  }
-}
-
-/* 3. MOBILE & TABLET PORTRAIT (Toggle Menu) */
 @media (max-width: 1024px) {
   .desktop-only {
     display: none !important;
-  }
-
-  .container {
-    padding: 0 25px;
-    /* Reduced for mobile */
-  }
-
-  .mobile-drawer,
-  .drawer-overlay {
-    display: block;
   }
 
   .site-header {
@@ -533,24 +503,36 @@ body.no-scroll {
     left: 0;
     width: 100%;
     z-index: 1000;
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /* Spacer to prevent content from going under fixed header */
   body {
-    padding-top: 50px;
-    /* Increased for luxury spacing */
+    padding-top: 60px;
+  }
+
+  .container,
+  .mega-container {
+    padding: 0 20px;
   }
 
   .announcebar {
     display: none;
-    /* Hide top bar on mobile to save space */
+  }
+
+  .announce-left {
+    display: none;
   }
 
   .main-navigationbar {
-    padding: 12px 0;
+    padding: 12px 20px;
   }
 
-  /* Hamburger Toggle */
+  .mobile-drawer,
+  .drawer-overlay {
+    display: block;
+  }
+
   .mobile-toggle-btn {
     display: flex;
     pointer-events: auto;
@@ -614,7 +596,6 @@ body.no-scroll {
     transform: rotate(-90deg) translate(8px, 0);
   }
 
-  /* Mobile Drawer */
   .mobile-drawer {
     position: fixed;
     top: 0;
@@ -716,7 +697,6 @@ body.no-scroll {
     transform: rotate(180deg);
   }
 
-  /* Accordion Submenus */
   .mobile-submenu-panel {
     padding: 0 0 20px 10px;
     animation: drawerFadeIn 0.3s ease;
@@ -816,7 +796,6 @@ body.no-scroll {
     border-radius: 2px;
   }
 
-  /* Overlay */
   .drawer-overlay {
     position: fixed;
     top: 0;
@@ -865,6 +844,24 @@ body.no-scroll {
 
   .cart-btn span {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-navigationbar {
+    padding: 10px 16px;
+  }
+
+  .logo-col img {
+    width: 75px;
+  }
+
+  .menu-right {
+    gap: 8px;
+  }
+
+  .cart-btn {
+    padding: 6px 10px;
   }
 }
 
