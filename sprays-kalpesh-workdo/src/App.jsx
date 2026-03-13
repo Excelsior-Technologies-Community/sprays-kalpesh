@@ -14,6 +14,7 @@ import UniqueSection from './components/UniqueSection/UniqueSection'
 import ManufacturingProcess from './components/ManufacturingProcess/ManufacturingProcess'
 import Newsletter from './components/Newsletter/Newsletter'
 import FeaturedBlog from './components/FeaturedBlog/FeaturedBlog'
+import Testimonials from './components/Testimonials/Testimonials'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +41,7 @@ function App() {
         <ManufacturingProcess />
         <Newsletter />
         <FeaturedBlog />
+        <Testimonials />
 
         <Footer />
       </div>
