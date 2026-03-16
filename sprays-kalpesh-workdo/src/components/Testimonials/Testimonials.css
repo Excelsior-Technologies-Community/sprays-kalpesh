@@ -13,14 +13,25 @@
 }
 
 @media (max-width: 1400px) {
-    .testimonials-container { padding: 0 80px; }
+    .testimonials-container {
+        padding: 0 80px;
+    }
 }
+
 @media (max-width: 1024px) {
-    .testimonials-container { padding: 0 40px; }
+    .testimonials-container {
+        padding: 0 40px;
+    }
 }
+
 @media (max-width: 768px) {
-    .testimonials-container { padding: 0 20px; }
-    .testimonials-section { padding: 60px 0; }
+    .testimonials-container {
+        padding: 0 20px;
+    }
+
+    .testimonials-section {
+        padding: 60px 0;
+    }
 }
 
 .section-header {
@@ -35,7 +46,7 @@
     font-weight: 700;
     margin: 0;
     padding: 5px 15px;
-    background-color: #b9e9f6; /* Light blue highlight from reference */
+
     display: inline-block;
     color: #000000;
 }
@@ -46,7 +57,8 @@
 }
 
 .testimonials-swiper {
-    padding: 10px; /* To show shadows/borders correctly if any */
+    padding: 10px;
+    /* To show shadows/borders correctly if any */
 }
 
 /* Card Styling */
@@ -146,7 +158,8 @@
 /* Navigation Buttons */
 .testi-nav {
     position: absolute;
-    top: -80px; /* Positioned in the header row area */
+    top: -80px;
+    /* Positioned in the header row area */
     right: 0;
     width: 44px;
     height: 44px;
@@ -191,26 +204,44 @@
         align-items: flex-start;
         padding: 20px;
     }
+
     .img-wrapper {
         flex: 0 0 100px;
         height: 100px;
         width: 100px;
+
     }
+
     .testi-title-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
     }
+
     .testi-nav {
         top: auto;
-        bottom: -60px;
+        bottom: -50px;
         left: 50%;
         transform: translateX(-50%);
     }
+
     .testi-prev {
         margin-left: -30px;
     }
+
     .testi-next {
         margin-left: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .testi-card-inner {
+            align-items: center;
+
+        }
+
+        .img-wrapper {
+            margin: 0 auto;
+
+        }
     }
 }
