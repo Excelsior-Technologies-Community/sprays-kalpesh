@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from 'react';
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import Hero from './components/Hero/Hero'
@@ -8,44 +7,49 @@ import Description from './components/2nd-section/Description'
 import VideoSection from './components/Video-section/Video-section'
 import VersalitySection from './components/Versality-section/Versality-section'
 import ProductCategorySlider from './components/ProductCategorySlider/ProductCategorySlider'
-
 import Footer from './components/Footer/Footer'
 import UniqueSection from './components/UniqueSection/UniqueSection'
 import ManufacturingProcess from './components/ManufacturingProcess/ManufacturingProcess'
 import Newsletter from './components/Newsletter/Newsletter'
 import FeaturedBlog from './components/FeaturedBlog/FeaturedBlog'
 import Testimonials from './components/Testimonials/Testimonials'
+import Shop from './Shop/Shop'
+import Wishlist from './Wishlist/Wishlist'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Home() {
   return (
     <>
-
-      <div className="App">
-        {/* 1. Call the Navbar at the top */}
-        <Navbar />
-        <Hero />
-
-        {/* 2. Rest of your page content */}
-        <Description />
-
-        <ProductSlider />
-
-        <VideoSection />
-
-        <VersalitySection />
-
-        <ProductCategorySlider />
-        <UniqueSection />
-        <ManufacturingProcess />
-        <Newsletter />
-        <FeaturedBlog />
-        <Testimonials />
-
-        <Footer />
-      </div>
+      <Hero />
+      <Description />
+      <ProductSlider />
+      <VideoSection />
+      <VersalitySection />
+      <ProductCategorySlider />
+      <UniqueSection />
+      <ManufacturingProcess />
+      <Newsletter />
+      <FeaturedBlog />
+      <Testimonials />
     </>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        {/* You can add more routes here, like /collections/mens-fragrances */}
+        <Route path="/collections/mens-fragrances" element={<Shop />} />
+      </Routes>
+
+      <Footer />
+    </div>
   )
 }
 
