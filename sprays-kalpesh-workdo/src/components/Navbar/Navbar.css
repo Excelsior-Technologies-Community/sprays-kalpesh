@@ -201,6 +201,7 @@ body.no-scroll {
   position: static;
 }
 
+/* ── MEGA MENU BASE STATE ── */
 .mega-menu {
   display: none;
   visibility: hidden;
@@ -230,14 +231,15 @@ body.no-scroll {
   background: transparent;
 }
 
-.has-mega:hover .mega-menu {
+/* ── MEGA MENU OPEN STATE (JS-controlled, replaces :hover) ── */
+.has-mega.mega-open .mega-menu {
   display: block;
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 
-.has-mega:hover>a .nav-chevron {
+.has-mega.mega-open>a .nav-chevron {
   transform: rotate(180deg);
 }
 
@@ -418,31 +420,77 @@ body.no-scroll {
 }
 
 .account-icon {
-  background: #fff;
+  background: none;
   border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease;
+  color: var(--nav-text);
+  padding: 0;
+}
+
+.account-icon svg path {
+  fill: currentColor;
+}
+
+.wishlist-icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.wishlist-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  color: var(--nav-accent);
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-btn {
-  border: 1.5px solid var(--nav-text);
-  padding: 10px 24px;
-  border-radius: 30px;
+  background: none;
+  border: none;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   cursor: pointer;
-  background: transparent;
   color: var(--nav-text);
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.cart-btn span {
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .cart-btn span {
+    display: none;
+  }
+}
+
+.cart-btn svg path {
+  fill: currentColor;
 }
 
 .mobile-main-list {
@@ -525,7 +573,22 @@ body.no-scroll {
   }
 
   .main-navigationbar {
-    padding: 12px 20px;
+    padding: 10px 15px;
+  }
+
+  .logo-col {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+    height: auto;
+  }
+
+  .logo-col img {
+    width: 90px;
+  }
+
+  .menu-right {
+    gap: 12px;
   }
 
   .mobile-drawer,
