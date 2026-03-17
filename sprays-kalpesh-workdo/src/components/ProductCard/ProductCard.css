@@ -16,9 +16,11 @@
 
 @media (max-width: 600px) {
     .product-card-inner {
-        width: 220px;
-        min-width: 220px;
-        height: 400px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        height: auto;
+        min-height: 420px;
     }
 }
 
