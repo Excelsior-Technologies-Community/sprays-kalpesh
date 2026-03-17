@@ -28,7 +28,7 @@ const VersalitySection = () => {
             <div className="v-container">
                 <div className="v-header">
                     <div className="v-title-block">
-                        <h2>Exploring the <br /> Versatility of Sprays</h2>
+                        <h2>Transforming Surfaces <br /> with Spray Mastery</h2>
                     </div>
                     <div className="v-tabs-block">
                         {tabs.map((tab) => (
