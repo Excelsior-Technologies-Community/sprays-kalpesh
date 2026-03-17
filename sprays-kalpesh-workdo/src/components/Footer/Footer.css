@@ -122,14 +122,10 @@
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
-    transition: all 0.3s ease;
+
 }
 
-.social-a:hover {
-    transform: translateY(-3px);
-    background-color: #fff;
-    border-color: #fff;
-}
+
 
 @media (max-width: 767px) {
     .social-ul {
