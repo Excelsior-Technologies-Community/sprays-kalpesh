@@ -420,3 +420,12 @@ del.price-item--sale {
 .btn-secondary.cart-btn svg {
     flex-shrink: 0;
 }
+
+.btn-secondary.cart-btn.cart-added {
+    background: #27ae60;
+    transform: scale(1.03);
+}
+
+.btn-secondary.cart-btn.cart-added:hover {
+    background: #219a52;
+}
