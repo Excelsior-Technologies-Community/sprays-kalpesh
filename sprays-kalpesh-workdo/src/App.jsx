@@ -15,6 +15,7 @@ import FeaturedBlog from './components/FeaturedBlog/FeaturedBlog'
 import Testimonials from './components/Testimonials/Testimonials'
 import Shop from './Shop/Shop'
 import Wishlist from './Wishlist/Wishlist'
+import Cart from './Cart/Cart'
 import { Routes, Route } from 'react-router-dom'
 
 function Home() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
         {/* You can add more routes here, like /collections/mens-fragrances */}
         <Route path="/collections/mens-fragrances" element={<Shop />} />
       </Routes>
