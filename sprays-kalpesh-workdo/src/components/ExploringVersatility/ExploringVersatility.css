@@ -94,6 +94,11 @@
         padding: 60px 0;
     }
 
+    .evs-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
     .evs-title {
         font-size: 28px;
     }
