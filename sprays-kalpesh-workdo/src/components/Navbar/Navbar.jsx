@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
+import { useCart } from '../../context/CartContext';
 import './Navbar.css';
 
 const navConfig = {
@@ -77,10 +78,25 @@ const navConfig = {
 
 const Navbar = () => {
   const { wishlistItems } = useWishlist();
+  const { cartCount } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenuId, setOpenSubmenuId] = useState(null);
-  const [openMegaId, setOpenMegaId] = useState(null); // ← tracks which desktop mega is open
-  const closeTimerRef = useRef(null);                  // ← shared close delay timer
+  const [openMegaId, setOpenMegaId] = useState(null);
+  const closeTimerRef = useRef(null);
+  const headerRef = useRef(null);
+
+  // Track header height and publish as CSS variable for the fixed mega menu
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const h = headerRef.current.getBoundingClientRect().height;
+        document.documentElement.style.setProperty('--header-height', `${h}px`);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -119,7 +135,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="site-header" role="banner">
+      <header className="site-header" role="banner" ref={headerRef}>
 
         {/* 1. Announce Bar */}
         <div className="announcebar">
@@ -264,12 +280,16 @@ const Navbar = () => {
                   </svg>
                   {wishlistItems.length > 0 && <span className="wishlist-count">{wishlistItems.length}</span>}
                 </Link>
-                <button className="cart-btn" aria-label="Shopping cart contains $0.00">
+                <Link to="/cart" className="cart-btn" aria-label={`Shopping cart, ${cartCount} items`}>
                   <svg width="16" height="15" viewBox="0 0 19 17" fill="none" aria-hidden="true">
                     <path fillRule="evenodd" clipRule="evenodd" d="M15.5698 10.627H6.97178C5.80842 10.6273 4.81015 9.79822 4.59686 8.65459L3.47784 2.59252C3.40702 2.20522 3.06646 1.92595 2.67278 1.93238H0.805055C0.360435 1.93238 0 1.57194 0 1.12732C0 0.682701 0.360435 0.322266 0.805055 0.322266H2.68888C3.85224 0.321937 4.85051 1.15101 5.06380 2.29465L6.18282 8.35672C6.25364 8.74402 6.59420 9.02328 6.98788 9.01686H15.5778C15.9715 9.02328 16.3121 8.74402 16.3829 8.35672L17.3972 2.88234C17.4407 2.64509 17.3755 2.40085 17.2195 2.21684C17.0636 2.03283 16.8334 1.92843 16.5922 1.93238H7.2455C6.80088 1.93238 6.44044 1.57194 6.44044 1.12732C6.44044 0.682701 6.80088 0.322266 7.24550 0.322266H16.5841C17.3023 0.322063 17.9833 0.641494 18.4423 1.19385C18.9013 1.74622 19.0907 2.47420 18.9590 3.18021L17.9447 8.65459C17.7314 9.79822 16.7331 10.6273 15.5698 10.627ZM10.466 13.8478C10.466 12.5139 9.38464 11.4326 8.05079 11.4326C7.60617 11.4326 7.24573 11.7931 7.24573 12.2377C7.24573 12.6823 7.60617 13.0427 8.05079 13.0427C8.49541 13.0427 8.85584 13.4032 8.85584 13.8478C8.85584 14.2924 8.49541 14.6528 8.05079 14.6528C7.60617 14.6528 7.24573 14.2924 7.24573 13.8478C7.24573 13.4032 6.88529 13.0427 6.44068 13.0427C5.99606 13.0427 5.63562 13.4032 5.63562 13.8478C5.63562 15.1816 6.71693 16.2629 8.05079 16.2629C9.38464 16.2629 10.466 15.1816 10.466 13.8478ZM15.2963 15.4579C15.2963 15.0133 14.9358 14.6528 14.4912 14.6528C14.0466 14.6528 13.6862 14.2924 13.6862 13.8478C13.6862 13.4032 14.0466 13.0427 14.4912 13.0427C14.9358 13.0427 15.2963 13.4032 15.2963 13.8478C15.2963 14.2924 15.6567 14.6528 16.1013 14.6528C16.5459 14.6528 16.9064 14.2924 16.9064 13.8478C16.9064 12.5139 15.8251 11.4326 14.4912 11.4326C13.1574 11.4326 12.0760 12.5139 12.0760 13.8478C12.0760 15.1816 13.1574 16.2629 14.4912 16.2629C14.9358 16.2629 15.2963 15.9025 15.2963 15.4579Z" fill="currentColor" />
                   </svg>
-                  <span>$0.00</span>
-                </button>
+                  {cartCount > 0 ? (
+                    <span className="wishlist-count">{cartCount}</span>
+                  ) : (
+                    <span>$0.00</span>
+                  )}
+                </Link>
               </div>
 
             </div>
