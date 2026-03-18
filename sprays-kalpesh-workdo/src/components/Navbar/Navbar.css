@@ -21,8 +21,16 @@ body.no-scroll {
   position: sticky;
   top: 0;
   margin-bottom: 0;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* This inner wrapper spans the full header width and acts as the
+   containing block for .mega-menu's position:absolute.
+   Wrap your entire header content in <div class="header-inner"> in your HTML. */
+.header-inner {
+  position: relative;
+  width: 100%;
 }
 
 .container {
@@ -119,8 +127,12 @@ body.no-scroll {
 }
 
 .main-navigationbar {
-  padding: 24px 0;
-  position: relative;
+  padding: 24px 70px;
+
+  /* FIX: Do NOT set position: relative here.
+     Removing it allows .mega-menu (position: absolute) to escape up to
+     .site-header as its containing block, so left:0 / width:100%
+     correctly spans the full header width. */
 }
 
 .navigationbar-row {
@@ -197,25 +209,29 @@ body.no-scroll {
   left: 0;
 }
 
-.has-mega {
-  position: static;
-}
+/* .has-mega has no position set — it must NOT be a containing block,
+   so the mega menu climbs up to .site-header instead */
+.has-mega {}
 
 /* ── MEGA MENU BASE STATE ── */
 .mega-menu {
   display: none;
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+
+  /* Fixed = always anchors to viewport, guarantees 100% screen width
+     regardless of any parent stacking context */
+  position: fixed;
+  top: auto;           /* overridden by JS-open state below */
   left: 0;
-  top: 100%;
-  width: 100%;
+  width: 100vw;
+
   background: var(--nav-glass-bg);
   backdrop-filter: blur(var(--nav-glass-blur));
   -webkit-backdrop-filter: blur(var(--nav-glass-blur));
   border-top: 1px solid var(--nav-border);
   padding: 40px 0 50px;
-  z-index: 999;
+  z-index: 9999;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -231,11 +247,12 @@ body.no-scroll {
   background: transparent;
 }
 
-/* ── MEGA MENU OPEN STATE (JS-controlled, replaces :hover) ── */
+/* ── MEGA MENU OPEN STATE (JS-controlled) ── */
 .has-mega.mega-open .mega-menu {
   display: block;
   visibility: visible;
   opacity: 1;
+  top: var(--header-height, 80px);
   transform: translateY(0);
 }
 
@@ -249,8 +266,10 @@ body.no-scroll {
 
 .mega-container {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 80px;
+  box-sizing: border-box;
 }
 
 .categories-mega {
@@ -476,6 +495,8 @@ body.no-scroll {
   color: var(--nav-text);
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
+  position: relative;
   transition: transform 0.3s ease;
 }
 
@@ -508,7 +529,7 @@ body.no-scroll {
 }
 
 @media (max-width: 1400px) {
-  .site-header {
+  .main-navigationbar {
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -520,7 +541,7 @@ body.no-scroll {
 }
 
 @media (max-width: 1200px) {
-  .site-header {
+  .main-navigationbar {
     padding-left: 25px;
     padding-right: 25px;
   }
