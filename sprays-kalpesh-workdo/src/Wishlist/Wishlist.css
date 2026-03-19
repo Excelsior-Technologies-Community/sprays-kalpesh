@@ -1,0 +1,532 @@
+/* ═══════════════════════════════════════════
+   WISHLIST PAGE — Matches Cart Layout
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.wl-page {
+    min-height: 100vh;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    padding: 40px 0 80px;
+}
+
+.wl-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* ══════════════════════════════
+   LEFT COLUMN
+   ══════════════════════════════ */
+.wl-left {
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+/* Top bar: continue shopping */
+.wl-topbar {
+    margin-bottom: 18px;
+}
+
+.wl-continue-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.wl-continue-link:hover { color: #000; }
+
+.wl-cs-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    transition: border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+}
+
+.wl-continue-link:hover .wl-cs-icon {
+    border-color: #000;
+    background: #f5f5f5;
+}
+
+/* Page title */
+.wl-title {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 0 0 32px;
+    color: #000;
+}
+
+/* ══════════════════════════════
+   TABLE HEADER
+   ══════════════════════════════ */
+.wl-table-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 2px solid #000;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* ── Column Sizes ── */
+.wl-col { display: flex; align-items: center; }
+.wl-col-image  { width: 140px; flex-shrink: 0; }
+.wl-col-name   { flex: 1; padding: 0 16px; }
+.wl-col-action { width: 160px; justify-content: center; }
+.wl-col-del    { width: 60px; justify-content: flex-end; }
+
+/* Price shown inline inside the name/details block */
+.wl-item-price-inline {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* ══════════════════════════════
+   ITEM ROWS
+   ══════════════════════════════ */
+.wl-items-list {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.wl-item-row {
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.wl-item-row:last-child {
+    border-bottom: none;
+}
+
+/* Product image */
+.wl-item-img {
+    width: 110px;
+    height: 110px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wl-item-img img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+/* Item details */
+.wl-item-brand {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.wl-item-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.wl-item-meta {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 4px;
+    display: flex;
+    gap: 4px;
+}
+
+.wl-item-meta span {
+    font-weight: 500;
+    color: #333;
+}
+
+.wl-item-old-price {
+    font-size: 12px;
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+/* Price */
+.wl-item-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Add to cart button */
+.wl-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.wl-add-btn:hover {
+    background: #222;
+    transform: translateY(-1px);
+}
+
+.wl-add-btn.added {
+    background: #27ae60;
+    transform: translateY(-1px);
+}
+
+/* Delete button */
+.wl-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, color 0.2s;
+    border-radius: 50%;
+}
+
+.wl-delete-btn:hover {
+    transform: scale(1.15);
+    color: #c0392b;
+}
+
+/* ══════════════════════════════
+   EMPTY STATE
+   ══════════════════════════════ */
+.wl-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    gap: 20px;
+}
+
+.wl-empty p {
+    font-size: 18px;
+    color: #888;
+    margin: 0;
+}
+
+.wl-btn-shop {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.25s;
+}
+
+.wl-btn-shop:hover { background: #333; }
+
+/* ══════════════════════════════
+   RIGHT SIDEBAR
+   ══════════════════════════════ */
+.wl-right {
+    width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 100px;
+}
+
+.wl-summary-box {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.wl-summary-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 20px;
+}
+
+.wl-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.wl-summary-label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.wl-summary-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.wl-summary-note {
+    font-size: 13px;
+    color: #888;
+    margin: 14px 0 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.wl-summary-link {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+.wl-move-all-btn {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.25s, transform 0.2s;
+    margin-bottom: 10px;
+}
+
+.wl-move-all-btn:hover {
+    background: #222;
+    transform: translateY(-1px);
+}
+
+.wl-clear-btn {
+    width: 100%;
+    background: transparent;
+    color: #888;
+    border: 1.5px solid #e0e0e0;
+    padding: 13px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.wl-clear-btn:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════ */
+
+/* ── Large tablet / small laptop ── */
+@media (max-width: 1280px) {
+    .wl-container { padding: 0 40px; }
+}
+
+/* ── Tablet: stack left + right columns ── */
+@media (max-width: 1100px) {
+    .wl-container {
+        flex-direction: column;
+        padding: 0 40px;
+        gap: 32px;
+    }
+    .wl-right {
+        width: 100%;
+        position: static;
+    }
+    .wl-summary-box {
+        max-width: 600px;
+    }
+
+    /* Centre topbar & title once the layout stacks */
+    .wl-topbar {
+        display: flex;
+        justify-content: center;
+    }
+    .wl-title {
+        text-align: center;
+    }
+}
+
+/* ── Small tablet ── */
+@media (max-width: 768px) {
+    .wl-page { padding: 24px 0 60px; }
+
+    .wl-container {
+        padding: 0 20px;
+        gap: 24px;
+    }
+
+    .wl-title {
+        font-size: 30px;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+
+    /* Hide table header — use card layout instead */
+    .wl-table-header { display: none; }
+
+    /* ── CARD LAYOUT ───────────────────── */
+    .wl-item-row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "img  details"
+            "btn  btn";
+        gap: 14px 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+        border: 1.5px solid #f0f0f0;
+        border-radius: 12px;
+        background: #fafafa;
+        position: relative;
+    }
+
+    /* Image cell */
+    .wl-col-image {
+        grid-area: img;
+        width: 90px;
+        flex-shrink: 0;
+    }
+    .wl-item-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 8px;
+        background: #f0f0f0;
+    }
+
+    /* Details cell: brand, name, meta, price all stacked */
+    .wl-col-name {
+        grid-area: details;
+        flex: unset;
+        min-width: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 32px; /* space for delete btn */
+    }
+    .wl-item-name  { font-size: 14px; margin-bottom: 4px; }
+    .wl-item-brand { font-size: 11px; margin-bottom: 4px; }
+
+    /* Price shown inline within the details block */
+    .wl-item-price-inline {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+        margin-top: 6px;
+    }
+
+    /* Delete button — absolute top-right of the card */
+    .wl-col-del {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    /* Full-width Add To Cart button at the bottom */
+    .wl-col-action {
+        grid-area: btn;
+        width: 100%;
+        justify-content: stretch;
+    }
+    .wl-add-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    /* Summary full-width */
+    .wl-right { width: 100%; }
+    .wl-summary-box { max-width: 100%; }
+}
+
+/* ── Mobile phones ── */
+@media (max-width: 480px) {
+    .wl-container { padding: 0 14px; gap: 16px; }
+    .wl-title { font-size: 26px; text-align: center; }
+    .wl-empty p { font-size: 15px; text-align: center; }
+
+    /* Tighten card on small phones */
+    .wl-item-row {
+        grid-template-columns: 76px 1fr;
+        padding: 14px;
+        gap: 12px 10px;
+        border-radius: 10px;
+    }
+
+    .wl-col-image { width: 76px; }
+    .wl-item-img  { width: 76px; height: 76px; border-radius: 6px; }
+
+    .wl-item-name  { font-size: 13px; }
+    .wl-item-meta  { font-size: 12px; }
+    .wl-item-price { font-size: 13px; }
+
+    .wl-add-btn {
+        font-size: 13px;
+        padding: 11px;
+        border-radius: 8px;
+    }
+
+    .wl-summary-box   { padding: 16px; border-radius: 10px; }
+    .wl-move-all-btn  { font-size: 14px; padding: 14px 12px; border-radius: 25px; }
+    .wl-clear-btn     { font-size: 13px; padding: 12px; }
+    .wl-summary-label { font-size: 13px; }
+    .wl-summary-value { font-size: 15px; }
+}
+
+/* ── Very small phones ── */
+@media (max-width: 360px) {
+    .wl-container { padding: 0 10px; }
+    .wl-title { font-size: 22px; }
+    .wl-continue-link { font-size: 12px; }
+    .wl-cs-icon { width: 28px; height: 28px; }
+}
