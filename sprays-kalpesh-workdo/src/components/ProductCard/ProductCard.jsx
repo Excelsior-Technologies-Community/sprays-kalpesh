@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ProductCard.css';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
@@ -16,6 +16,28 @@ const ProductCard = ({ product }) => {
     const [isCompared, setIsCompared] = useState(false);
     const [addedToCart, setAddedToCart] = useState(false);
     const { addToCart } = useCart();
+
+    // Live countdown timer (counts down from 142 days)
+    const [countdown, setCountdown] = useState({ d: 142, h: 9, m: 8, s: 38 });
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+        if (!product.showCountdown) return;
+        timerRef.current = setInterval(() => {
+            setCountdown(prev => {
+                let { d, h, m, s } = prev;
+                s -= 1;
+                if (s < 0) { s = 59; m -= 1; }
+                if (m < 0) { m = 59; h -= 1; }
+                if (h < 0) { h = 23; d -= 1; }
+                if (d < 0) { d = 0; h = 0; m = 0; s = 0; clearInterval(timerRef.current); }
+                return { d, h, m, s };
+            });
+        }, 1000);
+        return () => clearInterval(timerRef.current);
+    }, [product.showCountdown]);
+
+    const pad = (n) => String(n).padStart(2, '0');
 
     const handleAddToCart = () => {
         addToCart(product, selectedWeight);
@@ -106,7 +128,7 @@ const ProductCard = ({ product }) => {
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
-                                <span>142 : 09 : 08 : 38</span>
+                                <span>{pad(countdown.d)} : {pad(countdown.h)} : {pad(countdown.m)} : {pad(countdown.s)}</span>
                             </div>
                         </div>
                     )}
