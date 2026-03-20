@@ -218,7 +218,8 @@ body.no-scroll {
   /* Fixed = always anchors to viewport, guarantees 100% screen width
      regardless of any parent stacking context */
   position: fixed;
-  top: auto;           /* overridden by JS-open state below */
+  top: auto;
+  /* overridden by JS-open state below */
   left: 0;
   width: 100vw;
 
@@ -405,7 +406,7 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
+
 }
 
 
