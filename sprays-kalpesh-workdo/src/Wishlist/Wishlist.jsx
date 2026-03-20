@@ -152,13 +152,14 @@ const Wishlist = () => {
 
                             <p className="wl-summary-note">
                                 Prices may vary. Taxes and shipping calculated at{' '}
-                                <a href="#" className="wl-summary-link">checkout</a>
+                                <Link to="/cart" className="wl-summary-link">checkout</Link>
                             </p>
 
                             <button
                                 className="wl-move-all-btn"
                                 onClick={() => {
-                                    wishlistItems.forEach(item => addToCart(item, item.weights?.[0] || '60ml'));
+                                    wishlistItems.forEach(item => addToCart(item, item.weights?.[0]));
+                                    clearWishlist();
                                 }}
                             >
                                 Move All To Cart
