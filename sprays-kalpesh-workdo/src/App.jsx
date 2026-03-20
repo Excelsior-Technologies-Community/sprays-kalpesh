@@ -16,7 +16,7 @@ import Testimonials from './components/Testimonials/Testimonials'
 import Shop from './Shop/Shop'
 import Wishlist from './Wishlist/Wishlist'
 import Cart from './Cart/Cart'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
