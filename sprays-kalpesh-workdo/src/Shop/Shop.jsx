@@ -3,6 +3,20 @@ import './Shop.css';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard/ProductCard';
 import ExploringVersatility from '../components/ExploringVersatility/ExploringVersatility';
+import { Link } from 'react-router-dom';
+
+// Reusable collapse icon — replaces 4 copy-pasted SVG blocks
+const CollapseIcon = ({ open }) =>
+    open ? (
+        <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+            <line x1="0" y1="1" x2="12" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+    ) : (
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+    );
 
 const Shop = () => {
     // ── STATE ──
@@ -35,6 +49,10 @@ const Shop = () => {
 
     const highestPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
 
+    // ── STOCK COUNTS (dynamic) ──
+    const inStockCount = useMemo(() => products.filter(p => p.inStock).length, []);
+    const outOfStockCount = useMemo(() => products.filter(p => !p.inStock).length, []);
+
     // ── FILTER LOGIC ──
     const filteredProducts = useMemo(() => {
         let result = [...products];
@@ -42,8 +60,9 @@ const Shop = () => {
         if (selectedBrands.length > 0) result = result.filter(p => selectedBrands.includes(p.brand));
         if (selectedWeights.length > 0) result = result.filter(p => p.weights.some(w => selectedWeights.includes(w)));
 
-        if (availability.inStock && !availability.outOfStock) result = result.filter(p => p.reviewCount >= 0);
-        if (!availability.inStock && availability.outOfStock) result = result.filter(p => p.reviewCount < 0);
+        // Availability filter — uses real inStock boolean
+        if (availability.inStock && !availability.outOfStock) result = result.filter(p => p.inStock === true);
+        if (!availability.inStock && availability.outOfStock) result = result.filter(p => p.inStock === false);
 
         result = result.filter(p => p.price >= minPrice && p.price <= maxPrice);
 
@@ -52,6 +71,7 @@ const Shop = () => {
             case 'price-high-low': result.sort((a, b) => b.price - a.price); break;
             case 'alphabetical-az': result.sort((a, b) => a.name.localeCompare(b.name)); break;
             case 'alphabetical-za': result.sort((a, b) => b.name.localeCompare(a.name)); break;
+            case 'featured': result.sort((a, b) => b.reviewCount - a.reviewCount); break;
             default: break;
         }
         return result;
@@ -63,8 +83,6 @@ const Shop = () => {
     const handleWeightToggle = (weight) =>
         setSelectedWeights(prev => prev.includes(weight) ? prev.filter(w => w !== weight) : [...prev, weight]);
 
-    const inStockCount = products.length;
-    const outOfStockCount = 0;
     const availabilitySelected = (availability.inStock ? 1 : 0) + (availability.outOfStock ? 1 : 0);
 
     return (
@@ -72,14 +90,14 @@ const Shop = () => {
             {/* ── TOP BANNER ── */}
             <section className="common-banner-section">
                 <div className="shop-container">
-                    <a className="back-btn" href="/">
+                    <Link className="back-btn" to="/">
                         <span className="svg-ic">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
                             </svg>
                         </span>
-                        Back to Return
-                    </a>
+                        Back to Home
+                    </Link>
                     <h2 className="heading">Men's Fragrances</h2>
                 </div>
             </section>
@@ -119,11 +137,7 @@ const Shop = () => {
                                 <div className="filter-widget-header" onClick={() => toggleSection('availability')}>
                                     <h5 className="acnav-label">AVAILABILITY</h5>
                                     <button className="collapse-btn" aria-label="toggle">
-                                        {openSections.availability ? (
-                                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none"><line x1="0" y1="1" x2="12" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        ) : (
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        )}
+                                        <CollapseIcon open={openSections.availability} />
                                     </button>
                                 </div>
                                 {openSections.availability && (
@@ -154,11 +168,7 @@ const Shop = () => {
                                 <div className="filter-widget-header" onClick={() => toggleSection('price')}>
                                     <h5 className="acnav-label">PRICE</h5>
                                     <button className="collapse-btn" aria-label="toggle">
-                                        {openSections.price ? (
-                                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none"><line x1="0" y1="1" x2="12" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        ) : (
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        )}
+                                        <CollapseIcon open={openSections.price} />
                                     </button>
                                 </div>
                                 {openSections.price && (
@@ -211,11 +221,7 @@ const Shop = () => {
                                 <div className="filter-widget-header" onClick={() => toggleSection('brand')}>
                                     <h5 className="acnav-label">BRAND</h5>
                                     <button className="collapse-btn" aria-label="toggle">
-                                        {openSections.brand ? (
-                                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none"><line x1="0" y1="1" x2="12" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        ) : (
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        )}
+                                        <CollapseIcon open={openSections.brand} />
                                     </button>
                                 </div>
                                 {openSections.brand && (
@@ -244,11 +250,7 @@ const Shop = () => {
                                 <div className="filter-widget-header" onClick={() => toggleSection('weight')}>
                                     <h5 className="acnav-label">WEIGHT</h5>
                                     <button className="collapse-btn" aria-label="toggle">
-                                        {openSections.weight ? (
-                                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none"><line x1="0" y1="1" x2="12" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        ) : (
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                                        )}
+                                        <CollapseIcon open={openSections.weight} />
                                     </button>
                                 </div>
                                 {openSections.weight && (
@@ -277,7 +279,7 @@ const Shop = () => {
                         <div className="shop-main-content">
                             <div className="product-toolbar">
                                 <nav className="breadcrumb">
-                                    <a href="/">Home</a>
+                                    <Link to="/">Home</Link>
                                     <span className="breadcrumb-sep"> / </span>
                                     <span className="breadcrumb-active">Products</span>
                                 </nav>
