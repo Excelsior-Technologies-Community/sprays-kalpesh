@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import './Cart.css';
 
 const Cart = () => {
-    const { cartItems, removeFromCart, updateQuantity, cartSubtotal, addToCart } = useCart();
+    const { cartItems, removeFromCart, updateQuantity, cartSubtotal } = useCart();
     const [specialInstructions, setSpecialInstructions] = useState('');
     const [giftWrapAdded, setGiftWrapAdded] = useState(false);
 
@@ -189,10 +189,14 @@ const Cart = () => {
                                 </div>
                             )}
                             <p className="summary-note">
-                                Taxes and shipping calculated at{' '}
-                                <a href="#" className="summary-link">checkout</a>
+                                Taxes and shipping calculated at checkout.
                             </p>
-                            <button className="checkout-btn">Proceed To Checkout</button>
+                            <button
+                                className="checkout-btn"
+                                onClick={() => alert('Checkout coming soon! Integration with payment gateway required.')}
+                            >
+                                Proceed To Checkout
+                            </button>
                         </div>
 
                     </div>
